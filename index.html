@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Monika ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff5f7 0%, #fbc2eb 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            z-index: 2;
+        }
+
+        h1 { color: #d63384; margin-bottom: 10px; }
+        p { color: #444; font-size: 1.1rem; }
+
+        .btn-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 150px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+        }
+
+        #finalMessage {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            animation: float 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="content">
+            <h1>Hey babee ✨</h1>
+            <p>You’re the most beautiful thing that ever happened to me. You make my world so much brighter just by being in it.</p>
+            <p><strong>Will you be my Valentine?</strong></p>
+            
+            <div class="btn-container">
+                <button id="yesBtn" onclick="accepted()">YES</button>
+                <button id="noBtn" onmouseover="growYes()" onclick="growYes()">No</button>
+            </div>
+        </div>
+
+        <div id="finalMessage">
+            <h1>Malai tha thiyo monika timi le yes naii vanxau mero babee 🥰</h1>
+            <p>You are my happiness, my comfort, and my favorite person in this world. Every moment with you feels special, and I’m grateful to have you in my life. Thank you for loving me the way you do — I promise to cherish you always.
+
+I love you more than words can say 💕
+Aru ta kei haina babee it's just ki i want to see you as my future wife I love you soo much monika💖</p>
+
+            <div style="font-size: 4rem;">🌹💍👸</div>
+        </div>
+    </div>
+
+    <script>
+        let scale = 1;
+
+        function growYes() {
+            // This grows the YES button every time she hovers over NO
+            scale += 0.5; 
+            document.getElementById('yesBtn').style.transform = `scale(${scale})`;
+            
+            // Move the NO button slightly away to make it harder to click
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * 60 - 30;
+            const y = Math.random() * 60 - 30;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function accepted() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('finalMessage').style.display = 'block';
+            document.body.style.background = "#ffccd5";
+            
+            // Trigger heart rain
+            setInterval(createHeart, 200);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+    </script>
+    <img src="monika.jpeg">
+</body>
+</html>
